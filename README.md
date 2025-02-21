@@ -24,7 +24,7 @@ To run CauAir on <b>KnowAir</b>, you may irectly execute the Python file in the 
 ```
 python experiments/cauair/main.py --device cuda:YOUR_CUDA_ID --model_name cauair --dataset 24_24_KA --iput_dim 13 --tod 8 --dim 128 --head 2 --rank 10
 ```
-To run CauAir on <b>CCAQ</b>, you may directly execute the Pyhon file in the terminal:
+To run CauAir on <b>CCAQ</b>, you may directly execute the Python file in the terminal:
 ```
 python experiments/cauair/main.py --device cuda:YOUR_CUDA_ID --model_name cauair --dataset 24_24_G --iput_dim 10 --tod 24 --dim 128 --head 4 --rank 108
 ```
