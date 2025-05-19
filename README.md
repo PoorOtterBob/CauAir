@@ -1,9 +1,9 @@
-# Causal Learning Meet Covariates: Empowering Lightweight and Effective Nationwide Air Quality Prediction (IJCAI 2025 submission paper ID 257)
-This is the official repository of our IJCAI 2025 submission paper (ID 257). 
+# Causal Learning Meet Covariates: Empowering Lightweight and Effective Nationwide Air Quality Prediction (IJCAI 2025)
+This is the official repository of our IJCAI 2025: CauAir. 
 
 ## 1. Introduction about the datasets
 ### 1.1 LargeAQ (Ours)
-In our paper, we create LargeAQ, a nationwide and long-term air quality dataset. We anticipate that this pioneering work will create promising avenues for the advancement of air quality prediction techniques. **The LargeAQ dataset will be open-sourced upon acceptance of the paper.**
+In our paper, we create LargeAQ, a nationwide and long-term air quality dataset. We anticipate that this pioneering work will create promising avenues for the advancement of air quality prediction techniques. **The LargeAQ dataset will be open-sourced soon.**
 
 ### 1.2 KnowAir and CCAQ
 We implement extra experiments on two open-sourced nationwide air quality datasets, [KnowAir](https://github.com/shuowang-ai/PM2.5-GNN) and [Chinese Cities Air Quality (CCAQ)](https://github.com/Friger/GAGNN). We have already processed the data from these two open-source datasets, and no additional operations are required to train the model on them.
