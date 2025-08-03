@@ -28,3 +28,17 @@ To run CauAir on <b>CCAQ</b>, you may directly execute the Python file in the te
 ```
 python experiments/cauair/main.py --device cuda:YOUR_CUDA_ID --model_name cauair --dataset 24_24_G --iput_dim 10 --tod 24 --dim 128 --head 4 --rank 108
 ```
+
+## 📄 Citation
+
+If you find this project helpful, please cite us:
+
+```bibtex
+@inproceedings{ma2025causal,
+  title={Causal Learning Meet Covariates: Empowering Lightweight and Effective Nationwide Air Quality Forecasting},
+  author={Jiaming Ma and Zhiqing Cui and Bingwu Wang and Pengkun Wang and Zhengyang Zhou and Zhe Zhao and Yang Wang},
+ booktitle   = {the 34th International Joint Conference on Artificial Intelligence},
+  volume    = {18},
+  year      = {2025}
+}
+```
