@@ -38,7 +38,6 @@ If you find this project helpful, please cite us:
   title={Causal Learning Meet Covariates: Empowering Lightweight and Effective Nationwide Air Quality Forecasting},
   author={Jiaming Ma and Zhiqing Cui and Bingwu Wang and Pengkun Wang and Zhengyang Zhou and Zhe Zhao and Yang Wang},
  booktitle   = {the 34th International Joint Conference on Artificial Intelligence},
-  volume    = {18},
   year      = {2025}
 }
 ```
