@@ -34,10 +34,10 @@ python experiments/cauair/main.py --device cuda:YOUR_CUDA_ID --model_name cauair
 If you find this project helpful, please cite us:
 
 ```bibtex
-@inproceedings{ma2025causal,
+@article{ma2025causal,
   title={Causal Learning Meet Covariates: Empowering Lightweight and Effective Nationwide Air Quality Forecasting},
-  author={Jiaming Ma and Zhiqing Cui and Bingwu Wang and Pengkun Wang and Zhengyang Zhou and Zhe Zhao and Yang Wang},
- booktitle   = {the 34th International Joint Conference on Artificial Intelligence},
-  year      = {2025}
+  author={Ma, Jiaming and Cui, Zhiqing and Wang, Binwu and Wang, Pengkun and Zhou, Zhengyang and Zhao, Zhe and Wang, Yang}, 
+  journal = {International Joint Conference on Artificial Intelligence},
+  year={2025}
 }
 ```
