@@ -3,7 +3,7 @@ This is the official repository of our IJCAI 2025: CauAir.
 
 ## 1. Introduction about the datasets
 ### 1.1 LargeAQ (Ours)
-In our paper, we create LargeAQ, a nationwide and long-term air quality dataset. **Given the constraints of China's data policies, directly open-sourcing this dataset may carry certain negative implications. Researchers interested in using the LargeAQ dataset are kindly requested to send an email to [JiamingMa@mail.ustc.edu.cn] to apply for access. Please include the following information in your email: your institution’s name, your full name, and the intended purpose of use. We will ensure a timely response and will share the dataset with you.**
+In our paper, we create LargeAQ, a nationwide and long-term air quality dataset. You can download the LargeAQ [here](https://drive.google.com/file/d/1fBfa4fek4OPZlC-jufs11ocHK3KRXGdX/view?usp=sharing).
 
 
 ### 1.2 KnowAir and CCAQ
