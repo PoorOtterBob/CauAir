@@ -37,8 +37,8 @@ class DataLoader(object):
 
     def write_to_shared_array(self, x, y, idx_ind, start_idx, end_idx):
         for i in range(start_idx, end_idx):
-            x[i] = self.data[idx_ind[i] + self.x_offsets, :, :min(self.data.shape[-1], self.input_dim)]
-            y[i] = self.data[idx_ind[i] + self.y_offsets, :, :min(self.data.shape[-1], self.input_dim)]
+            x[i] = self.data[idx_ind[i] + self.x_offsets, :, :self.input_dim]
+            y[i] = self.data[idx_ind[i] + self.y_offsets, :, :1]
 
 
     def get_iterator(self):
@@ -54,7 +54,7 @@ class DataLoader(object):
                 x_shared = mp.RawArray('f', int(np.prod(x_shape)))
                 x = np.frombuffer(x_shared, dtype='f').reshape(x_shape)
 
-                y_shape = (len(idx_ind), self.horizon, self.data.shape[1], min(self.data.shape[-1], self.input_dim))
+                y_shape = (len(idx_ind), self.horizon, self.data.shape[1], 1)
                 y_shared = mp.RawArray('f', int(np.prod(y_shape)))
                 y = np.frombuffer(y_shared, dtype='f').reshape(y_shape)
 
@@ -131,4 +131,5 @@ def get_dataset_info(dataset):
          '24_24_KA': [str(KNOWAIR_ROOT / '24_24'), str(KNOWAIR_ROOT / 'adj_mx.npy'), 184],
          '24_24_G': [str(GAGNN_ROOT / '24_24'), str(GAGNN_ROOT / 'adj_mx.npy'), 209],
         }
+    assert dataset in d.keys()
     return d[dataset]

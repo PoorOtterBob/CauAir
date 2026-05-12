@@ -2,11 +2,17 @@ import os
 import sys
 import logging
 
+from src.utils.project import normalize_run_dir
+
 def get_logger(log_dir, name, log_filename, level=logging.INFO):
-    os.makedirs(log_dir, exist_ok=True)
+    log_dir = normalize_run_dir(log_dir)
 
     logger = logging.getLogger(name)
     logger.setLevel(level)
+    logger.propagate = False
+
+    if logger.handlers:
+        logger.handlers.clear()
 
     file_formatter = logging.Formatter('%(asctime)s - %(message)s')
     file_handler = logging.FileHandler(os.path.join(log_dir, log_filename))

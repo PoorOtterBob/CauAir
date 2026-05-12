@@ -15,6 +15,7 @@ class DataLoader(object):
             idx = np.concatenate([idx, idx_padding], axis=0)
         # print('Defalut data shape:', data.shape)
         self.data = data
+        self.data[..., -2:] -= 0.5
         # print('Practice data shape:', self.data.shape)
         self.idx = idx
         self.size = len(idx)
@@ -29,6 +30,7 @@ class DataLoader(object):
         self.horizon = horizon
         self.input_dim = input_dim
 
+        # print(data[0:30, 0, -2:])
     def shuffle(self):
         perm = np.random.permutation(self.size)
         idx = self.idx[perm]
@@ -39,7 +41,6 @@ class DataLoader(object):
         for i in range(start_idx, end_idx):
             x[i] = self.data[idx_ind[i] + self.x_offsets, :, :min(self.data.shape[-1], self.input_dim)]
             y[i] = self.data[idx_ind[i] + self.y_offsets, :, :min(self.data.shape[-1], self.input_dim)]
-
 
     def get_iterator(self):
         self.current_ind = 0
