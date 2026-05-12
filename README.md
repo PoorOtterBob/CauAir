@@ -2,22 +2,29 @@
 
 Official implementation of **CauAir: Causal Learning Meet Covariates for Nationwide Air Quality Forecasting**.
 
-This repository centers on the `src/models/cauair.py` model and keeps a cleaned benchmark suite of related forecasting baselines. The codebase has been reorganized so that:
+## LargeAQ Dataset
+
+LargeAQ is the core contribution of this project. You can download the released dataset here:
+
+- LargeAQ: https://drive.google.com/file/d/1fBfa4fek4OPZlC-jufs11ocHK3KRXGdX/view?usp=sharing
+
+If you are visiting this repository to reproduce the main paper result, start from the dataset link above.
+
+## Overview
+
+CauAir studies nationwide air-quality forecasting with explicit covariate modeling and lightweight causal structure. This repository contains:
+
+- the official CauAir implementation
+- cleaned experiment entrypoints for a benchmark suite of baselines
+- processed KnowAir and CCAQ-compatible data roots
+- shared training, logging, and path utilities for reproducible runs
+
+The repository has been reorganized so that:
 
 - `src/models` is the canonical model inventory
 - `experiments` contains runnable entrypoints only
-- training logs and checkpoints are redirected to `outputs/`
-- stale private branches and empty experiment artifact folders are removed
-
-## Project Scope
-
-CauAir targets long-horizon, multi-station air-quality forecasting with covariate-aware temporal modeling. The repository also includes a collection of baseline models used for comparison on nationwide air-quality datasets.
-
-The current repository is organized around three practical goals:
-
-1. keep model implementations under a single canonical location: `src/models`
-2. make experiment entrypoints easier to audit and reproduce
-3. separate source code from generated outputs such as logs and checkpoints
+- logs and checkpoints are redirected to `outputs/`
+- obsolete private experiment branches and empty artifact folders are removed
 
 ## Repository Structure
 
@@ -32,17 +39,15 @@ CauAir-main/
 ├── data/                # LargeAQ-style local data root
 ├── data_knowair/        # KnowAir data root
 ├── datagagnn/           # CCAQ / GAGNN-style data root
-├── outputs/             # Logs and checkpoints (created on demand)
+├── outputs/             # Logs and checkpoints, created on demand
 └── requirements.txt
 ```
 
 ## Datasets
 
-### 1. LargeAQ
+### LargeAQ
 
 LargeAQ is the nationwide, long-term air-quality dataset introduced for CauAir.
-
-The original README referenced an external release link. If you maintain a public release page or cloud storage link for LargeAQ, place it here explicitly before publishing the repository.
 
 Expected local layout:
 
@@ -56,9 +61,9 @@ data/
         └── idx_test.npy
 ```
 
-### 2. KnowAir
+### KnowAir
 
-This repository includes processed KnowAir data under:
+This repository already includes processed KnowAir data under:
 
 ```text
 data_knowair/
@@ -67,9 +72,9 @@ data_knowair/
 └── adj_mx.npy
 ```
 
-### 3. CCAQ
+### CCAQ
 
-This repository includes processed CCAQ / GAGNN-style data under:
+This repository already includes processed CCAQ / GAGNN-style data under:
 
 ```text
 datagagnn/
@@ -80,26 +85,24 @@ datagagnn/
 
 ## Environment
 
-Install the project dependencies with your preferred Python environment manager.
-
-Example:
+Install dependencies with:
 
 ```bash
 pip install -r requirements.txt
 ```
 
-The repository depends on:
+Main dependencies include:
 
 - PyTorch
 - NumPy / SciPy / scikit-learn / pandas
-- `torch-geometric` and `torch-scatter` for graph-based models
-- `torchdiffeq`, `torcheval`, `einops`, `reformer-pytorch`, and a few model-specific utilities
+- `torch-geometric` and `torch-scatter` for graph-based baselines
+- `torchdiffeq`, `torcheval`, `einops`, `reformer-pytorch`, and other model-specific utilities
 
-Because several graph libraries are platform-sensitive, it is usually safer to install PyTorch first and then install the PyG-related packages against the matching CUDA / CPU build.
+For graph libraries, it is usually better to install PyTorch first and then install the matching PyG packages for your CUDA or CPU environment.
 
-## Running Experiments
+## Running CauAir
 
-All runnable entrypoints are under `experiments/<model_name>/main.py`.
+All maintained entrypoints are under `experiments/<model_name>/main.py`.
 
 ### CauAir on LargeAQ
 
@@ -143,32 +146,32 @@ python experiments/cauair/main.py \
   --rank 108
 ```
 
-## Output Convention
+## Outputs
 
-Experiment scripts may still pass legacy paths like `./experiments/<model>/<dataset>/`, but the shared logging utility now normalizes them to the generated output tree:
+Experiment scripts may still pass legacy paths such as `./experiments/<model>/<dataset>/`, but the shared logging and engine utilities now normalize generated artifacts to:
 
 ```text
 outputs/experiments/<model>/<dataset>/
 ```
 
-This keeps code and generated artifacts separate while preserving backward compatibility for scripts that expect the old naming convention.
+This keeps source code and generated artifacts separate while preserving compatibility with older scripts.
 
-## Notes on Repository Cleanup
+## Cleanup Notes
 
 This repository has been cleaned to align with the canonical model list under `src/models`.
 
-The cleanup specifically removed:
+The cleanup removed:
 
 - orphaned experiment entrypoints that referenced missing models or engines
-- private / ad hoc experiment branches that were no longer runnable
-- empty experiment artifact folders left by earlier runs
+- private or ad hoc branches that were no longer runnable
+- empty experiment artifact folders left by previous runs
 - Finder metadata and Python cache directories
 
-As a result, `experiments/` now represents the maintained runnable entrypoints only.
+As a result, `experiments/` now represents maintained runnable entrypoints only.
 
 ## Citation
 
-If you use this repository in academic work, cite:
+If this repository or the LargeAQ dataset helps your work, please cite:
 
 ```bibtex
 @article{ma2025causal,
