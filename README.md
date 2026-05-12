@@ -2,29 +2,36 @@
 
 Official implementation of **CauAir: Causal Learning Meet Covariates for Nationwide Air Quality Forecasting**.
 
-## LargeAQ Dataset
+## LargeAQ Download
 
-LargeAQ is the core contribution of this project. You can download the released dataset here:
+LargeAQ is the core contribution of this project. If you are here to reproduce the main paper result, start from the dataset release:
 
-- LargeAQ: https://drive.google.com/file/d/1fBfa4fek4OPZlC-jufs11ocHK3KRXGdX/view?usp=sharing
+- **LargeAQ dataset**: https://drive.google.com/file/d/1fBfa4fek4OPZlC-jufs11ocHK3KRXGdX/view?usp=sharing
 
-If you are visiting this repository to reproduce the main paper result, start from the dataset link above.
+## This Update
+
+This repository update mainly adds and organizes:
+
+1. **Baseline code**
+2. **Other related components**
+
+Concretely, the current version now includes the maintained baseline experiment entrypoints, shared training engines, supporting utilities, and a cleaner repository structure for reproduction and follow-up development.
 
 ## Overview
 
-CauAir studies nationwide air-quality forecasting with explicit covariate modeling and lightweight causal structure. This repository contains:
+CauAir studies nationwide air-quality forecasting with explicit covariate modeling and lightweight causal structure. This repository now contains:
 
 - the official CauAir implementation
-- cleaned experiment entrypoints for a benchmark suite of baselines
+- baseline experiment code
+- related training and evaluation components
 - processed KnowAir and CCAQ-compatible data roots
-- shared training, logging, and path utilities for reproducible runs
+- shared logging, path, metric, and dataloader utilities
 
-The repository has been reorganized so that:
+The repository has been cleaned and reorganized around a simple rule:
 
 - `src/models` is the canonical model inventory
-- `experiments` contains runnable entrypoints only
-- logs and checkpoints are redirected to `outputs/`
-- obsolete private experiment branches and empty artifact folders are removed
+- `experiments` contains runnable experiment entrypoints
+- generated artifacts are separated from source code
 
 ## Repository Structure
 
@@ -100,9 +107,9 @@ Main dependencies include:
 
 For graph libraries, it is usually better to install PyTorch first and then install the matching PyG packages for your CUDA or CPU environment.
 
-## Running CauAir
+## Running Experiments
 
-All maintained entrypoints are under `experiments/<model_name>/main.py`.
+All maintained experiment entrypoints are under `experiments/<model_name>/main.py`.
 
 ### CauAir on LargeAQ
 
@@ -148,26 +155,21 @@ python experiments/cauair/main.py \
 
 ## Outputs
 
-Experiment scripts may still pass legacy paths such as `./experiments/<model>/<dataset>/`, but the shared logging and engine utilities now normalize generated artifacts to:
+Experiment scripts may still pass legacy paths such as `./experiments/<model>/<dataset>/`, but generated artifacts are normalized to:
 
 ```text
 outputs/experiments/<model>/<dataset>/
 ```
 
-This keeps source code and generated artifacts separate while preserving compatibility with older scripts.
+This keeps logs and checkpoints out of the source tree while preserving compatibility with older scripts.
 
-## Cleanup Notes
+## Notes
 
-This repository has been cleaned to align with the canonical model list under `src/models`.
+The current repository version focuses on putting the usable codebase online in a cleaner form. In particular:
 
-The cleanup removed:
-
-- orphaned experiment entrypoints that referenced missing models or engines
-- private or ad hoc branches that were no longer runnable
-- empty experiment artifact folders left by previous runs
-- Finder metadata and Python cache directories
-
-As a result, `experiments/` now represents maintained runnable entrypoints only.
+- baseline code is now included in the repository
+- other related components needed for running and comparing models are also included
+- empty experiment artifact folders and obsolete residual branches have been removed
 
 ## Citation
 
