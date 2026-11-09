@@ -74,7 +74,9 @@ CauAir-main/
 
 ### LargeAQ
 
-LargeAQ is the nationwide, long-term air-quality dataset introduced for CauAir.
+LargeAQ is the nationwide, long-term air-quality dataset introduced for CauAir: hourly AQI (including PM2.5, PM10, NO2) from 1,341 monitoring stations in 333 Chinese cities, January 2016 to December 2023, plus five weather covariates (temperature, humidity, precipitation, wind shear, wind speed).
+
+**Data sources.** The air-quality records come from the [China National Environmental Monitoring Centre (CNEMC)](https://www.cnemc.cn/), and the weather covariates were collected from the Chinese Weather Website, as described in the paper. The CC BY 4.0 license covers our compilation, cleaning and organization of the dataset; it does not claim ownership of the original upstream measurements.
 
 Expected local layout:
 
@@ -216,5 +218,5 @@ Includes processed [KnowAir](https://github.com/shuowang-ai/PM2.5-GNN) and [CCAQ
 | Component | License |
 | --- | --- |
 | Code | [MIT License](LICENSE) |
-| **LargeAQ dataset** | [Creative Commons Attribution 4.0 (CC BY 4.0)](LICENSE-DATA): free to share and adapt, including for commercial use, provided you give credit by citing the paper above |
+| **LargeAQ dataset** | [Creative Commons Attribution 4.0 (CC BY 4.0)](LICENSE-DATA): free to share and adapt, including for commercial use, provided you give credit by citing the paper above. Upstream sources: CNEMC and the Chinese Weather Website |
 | KnowAir, CCAQ (included for comparison) | Original terms of their upstream releases |
