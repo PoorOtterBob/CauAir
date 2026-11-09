@@ -1,4 +1,21 @@
-# CauAir
+<div align="center">
+
+# CauAir: Causal Learning Meet Covariates for Nationwide Air Quality Forecasting
+
+[![Venue IJCAI%202025](https://img.shields.io/badge/Venue-IJCAI%202025-1f6feb)](https://www.ijcai.org/proceedings/2025/353)
+[![Data License: CC BY 4.0](https://img.shields.io/badge/Data%20License-CC%20BY%204.0-lightgrey.svg)](LICENSE-DATA)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.8%2B-blue.svg)](https://www.python.org/) [![PyTorch](https://img.shields.io/badge/PyTorch-%E2%89%A51.10-ee4c2c.svg)](https://pytorch.org/)
+
+<p align="center">
+  <a href="https://www.ijcai.org/proceedings/2025/353">Paper</a> |
+  <a href="#largeaq-download">LargeAQ</a> |
+  <a href="#running-experiments">Running</a> |
+  <a href="#-citation">Citation</a> |
+  <a href="#-license">License</a>
+</p>
+
+</div>
 
 Official implementation of **CauAir: Causal Learning Meet Covariates for Nationwide Air Quality Forecasting**.
 
@@ -51,6 +68,9 @@ CauAir-main/
 ```
 
 ## Datasets
+
+> [!NOTE]
+> **LargeAQ** is released under [CC BY 4.0](LICENSE-DATA): free for academic and commercial use, with attribution. The KnowAir and CCAQ data below are third-party and keep their original terms.
 
 ### LargeAQ
 
@@ -171,15 +191,30 @@ The current repository version focuses on putting the usable codebase online in 
 - other related components needed for running and comparing models are also included
 - empty experiment artifact folders and obsolete residual branches have been removed
 
-## Citation
+## 📄 Citation
 
-If this repository or the LargeAQ dataset helps your work, please cite:
+If you find this repository useful, please cite our paper:
 
 ```bibtex
-@article{ma2025causal,
-  title={Causal Learning Meet Covariates: Empowering Lightweight and Effective Nationwide Air Quality Forecasting},
-  author={Ma, Jiaming and Cui, Zhiqing and Wang, Binwu and Wang, Pengkun and Zhou, Zhengyang and Zhao, Zhe and Wang, Yang},
-  journal={International Joint Conference on Artificial Intelligence},
-  year={2025}
+@inproceedings{ma2025causal,
+  title     = {Causal Learning Meet Covariates: Empowering Lightweight and Effective Nationwide Air Quality Forecasting},
+  author    = {Ma, Jiaming and Cui, Zhiqing and Wang, Binwu and Wang, Pengkun and Zhou, Zhengyang and Zhao, Zhe and Wang, Yang},
+  booktitle = {Proceedings of the Thirty-Fourth International Joint Conference on Artificial Intelligence (IJCAI)},
+  pages     = {3171--3179},
+  year      = {2025},
+  doi       = {10.24963/ijcai.2025/353},
+  url       = {https://www.ijcai.org/proceedings/2025/353}
 }
 ```
+
+## 🙏 Acknowledgements
+
+Includes processed [KnowAir](https://github.com/shuowang-ai/PM2.5-GNN) and [CCAQ / GAGNN](https://github.com/Friger/GAGNN) data for comparison; both keep the license of their original release.
+
+## 📜 License
+
+| Component | License |
+| --- | --- |
+| Code | [MIT License](LICENSE) |
+| **LargeAQ dataset** | [Creative Commons Attribution 4.0 (CC BY 4.0)](LICENSE-DATA): free to share and adapt, including for commercial use, provided you give credit by citing the paper above |
+| KnowAir, CCAQ (included for comparison) | Original terms of their upstream releases |
