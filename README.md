@@ -117,7 +117,7 @@ datagagnn/
 Install dependencies with:
 
 ```bash
-pip install -r requirements.txt
+uv sync
 ```
 
 Main dependencies include:
@@ -125,7 +125,7 @@ Main dependencies include:
 - PyTorch
 - NumPy / SciPy / scikit-learn / pandas
 - `torch-geometric` and `torch-scatter` for graph-based baselines
-- `torchdiffeq`, `torcheval`, `einops`, `reformer-pytorch`, and other model-specific utilities
+- `torchdiffeq`, `einops`, `reformer-pytorch`, and other model-specific utilities
 
 For graph libraries, it is usually better to install PyTorch first and then install the matching PyG packages for your CUDA or CPU environment.
 
@@ -192,6 +192,18 @@ The current repository version focuses on putting the usable codebase online in 
 - baseline code is now included in the repository
 - other related components needed for running and comparing models are also included
 - empty experiment artifact folders and obsolete residual branches have been removed
+
+## ⚙️ Installation (uv)
+
+Dependencies are declared in [`pyproject.toml`](pyproject.toml) and managed with [uv](https://docs.astral.sh/uv/):
+
+```bash
+uv sync                      # create .venv and install dependencies
+uv run python experiments/cauair/main.py --device cuda:0 --model_name cauair --dataset 24_24 --input_dim 8 --tod 24 --dim 128 --head 8 --rank 32
+```
+
+> [!NOTE]
+> `torch-scatter` (only needed by some graph baselines) must match your PyTorch/CUDA build, so it is not pinned. Install it with `uv pip install torch-scatter -f https://data.pyg.org/whl/torch-<torch version>+<cuda tag>.html`.
 
 ## 📄 Citation
 

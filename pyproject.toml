@@ -1,0 +1,25 @@
+[project]
+name = "cauair"
+version = "0.1.0"
+description = "Official code of CauAir (IJCAI 2025)"
+readme = "README.md"
+license = { file = "LICENSE" }
+requires-python = ">=3.9"
+dependencies = [
+    "torch",
+    "numpy",
+    "scipy",
+    "pandas",
+    "scikit-learn",
+    "tqdm",
+    "einops",
+    "pyyaml",
+    "fastdtw",
+    "haversine",
+    "reformer-pytorch",
+    "torch-geometric",
+    "torchdiffeq",
+]
+
+[tool.uv]
+package = false

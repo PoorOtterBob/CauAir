@@ -11,5 +11,4 @@ reformer-pytorch
 torch-geometric
 torch-scatter
 torchdiffeq
-torcheval
 PyYAML
